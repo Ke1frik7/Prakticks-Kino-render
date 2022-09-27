@@ -36,6 +36,13 @@ let form = document.getElementById("form")
                 }, 1000)
             }, 100)
             console.log(true)
+        }else{
+            let cardError = document.querySelector(".card_error")
+            cardError.classList.add("cardErrorBlock")   
+            console.log(cardError)
+            document.getElementById("coming").addEventListener("click", () => {
+                cardError.style.opacity = '0'
+            })
         }
     }
     form.addEventListener("submit", handle)
@@ -112,3 +119,4 @@ let form = document.getElementById("form")
     }
     document.getElementById("forms").addEventListener("submit", formSub)
     objectAylan(movies)
+    
