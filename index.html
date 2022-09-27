@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="load">
+        <div class="load_align">
+        </div>
+    </div>
+    <div class="parents">
+        <div class="container">
+            <div class="element">
+                <div class="element_title">
+                    <h1>Hush kelibsiz ... </h1>
+                    <h3>Shaxsingizni aniqlash uchun bizga suralgan ma'lumotlarni kiriting</h3>
+                </div>
+                <div class="card">
+                    <div class="card_align">
+                        <div class="card_title">
+                            <h2>Malumotlar muvaffaqiyatli kiritildi biroz kuting va sizning sahifangiz ochiladi ... </h2>
+                        </div>
+                    </div>
+                </div>  
+                <div class="element_align">
+                    <form id="form" name="form"></form> 
+                        <input id="input" required form="form" class="input" type="text" placeholder="ismingizni kiriting">
+                        <input type="email" required form="form" id="input_email" class="input_email" placeholder="Emailingizni iriting ..">
+                        <input type="password" id="input_parol" required placeholder="Parolingini kiriting">
+                        <button type="submit"  form="form" class="btn" id="btn">Yuborish ... </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="kino">
+        <div class="kino_header">
+            <h2>Biz bilan istalgan kinoni toping ... </h2>
+        </div>
+        <div class="kino_forma">
+            <form id="forms">
+                <lebel for="Kinolar" >
+                    <select name="select" id="select" form="forms">
+                        <option value="all">All</option>
+                    </select>
+                    <!-- <input type="text" form="forms" list="datalist">
+                    <datalist name="" id="datalist" >
+                        <option value="all">All</option>
+                    </dalatlist>                     -->
+                </lebel>
+                <input type="text" aria-label="Kinolar" class="forms_input" form="forms" placeholder="Kino_qidiring ... ">
+                <button type="submit" aria-label="Kinolar">Qidirish</button>
+            </form>
+        </div>
+        <div class="kino_cards">
+        </div>
+    </div>
+    <script src="./object.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+:root{
+    --oq: #fff;
+    --qora: black;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--qora);
+    color: var(--oq);
+}
+.container{
+    width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px auto;
+}
+.element{
+    width: 100%;
+    display: none;
+}
+.opacity{
+    opacity: 0;
+}
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}
+.element_title{
+    text-align: center;
+    padding-top: 3rem;
+}
+.element_title h1{
+    font-size: 40px;
+}
+.element_title h3{
+    font-size: 25px;
+}
+.element_align{
+    width: 60%;
+    height:60vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+.element_align input{
+    margin: 1.5rem;
+    padding: 0.8rem ;
+    width: 60% ;
+    outline: 2px solid rgba(0, 255, 255, 0.278);
+    transition: 0.5s ease;
+    border-radius: 10px;
+    font-size: 18px;
+}
+.element_align input{
+    border: 1px solid transparent;
+}
+.element_align input:focus{
+    outline: 2px solid rgba(0, 128, 0, 0.48);
+}
+.element_align input::placeholder{
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+.element_align button{
+    margin: 1rem;
+    /* width: 20%; */
+    color: var(--qora);
+    margin: 0 auto;
+    font-size: 19px;
+    background: grey;
+    padding: 0.8rem 2.2rem;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    border: 1px solid transparent;
+}
+.element_align button:hover{
+    background-color:rgba(0, 0, 0, 0.31);
+    border-radius: 0;
+    color: var(--oq);
+    border: 1px solid var(--oq);
+}
+.element_align button:active{
+    background-color: burlywood;
+    border-radius: 0;
+}
+input:not(:placeholder-shown):valid{
+    background: url("./Images/pngegg.png");
+    background-repeat: no-repeat;
+    background-position: calc(90%);
+    background-size: contain;
+}
+input:not(:placeholder-shown):invalid{
+    background: url("./Images/pngwing.com.png");
+    background-repeat: no-repeat;
+    background-position: calc(90%);
+    background-size:28px;
+}
+.card{
+    width: 50%;
+    background: #fff;
+    height: auto;
+    display: none;    
+}
+.card_align{
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: #fff;
+    width: 40%;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+}
+.card_title{
+    width: 80%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.card_title h2{
+    color: var(--qora);
+    background: transparent;
+}
+.load{
+    width: 100%;
+    height: 100vh;
+    transition: 1s ease;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.load_align{
+    position: absolute;
+    top: 47%;
+    left: 47%;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    /* border-bottom:10px solid red;
+    border-right: 10px solid blue; */
+    border-radius: 50%;
+    border-top: 10px solid rgba(0, 128, 0, 0.48);
+    border-left:10px solid rgba(0, 255, 255, 0.278);
+    animation-name: loader;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+
+}
+@keyframes loader{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(1500deg);
+    }
+}
+.kino{
+    display: none;
+    width: 100%;
+    height: auto;    
+    animation-name: filter;
+    animation-duration: 1.5s;
+}
+.kino_header{
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+.kinos_forma{
+    width: 100%;
+}
+#forms{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#forms select{
+    width: 100%;
+    padding: 0.3rem 1rem;
+    font-size: 17px;
+    outline: 2px solid rgba(0, 255, 255, 0.278);
+    border-radius: 4px;
+}
+#forms select:focus{
+    outline: 2px solid rgba(0, 128, 0, 0.48);
+}
+#forms input{
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    outline: 2px solid rgba(0, 255, 255, 0.278);
+    transition: 0.5s ease;
+    border-radius: 10px;
+}
+#forms input::placeholder{
+    font-size: 16px;
+    letter-spacing: 1px ;
+}
+#forms input:focus{
+    outline: 2px solid rgba(0, 128, 0, 0.48);
+}
+#forms button{
+    padding: 0.5rem 1.4rem;
+    font-size: 17px;
+    background: rgba(128, 128, 128, 0.445);
+    border-radius: 4px;
+    letter-spacing: 1px;
+    transition: 0.5s ease;
+}
+#forms button:hover{
+    background: rgba(128, 128, 128, 0.25);
+}
+
+.kinoBlock{
+    display: block;
+}
+
+.kino_cards{
+    /* margin: 1rem; */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 1rem;
+    flex-wrap: wrap;
+}
+.kino_card{
+    border-radius: 20px;
+    padding: 1rem;
+    width: 30%;
+    text-align: center;
+    margin: 1rem;
+    background: rgba(128, 128, 128, 0.443);
+    /* border: 1px solid var(--oq); */
+}
+.kino_card_title{
+    background: transparent;
+}
+.kino_card h2{
+    font-size: 30px;
+    background: transparent;
+}
+.kino_card h3{
+    font-size: 20px;
+    letter-spacing: 1px;
+    background: transparent;
+}
+.kino_card p{
+    padding: 0.4rem;
+    letter-spacing: 0.5px;
+    background: transparent;
+}
+.kino_card img{
+    width: 320px ;
+    height: 200px;
+    object-fit: cover;
+}
+.kino_card button{
+    padding: 0.5rem 0.7rem;
+    background: var(--oq);
+    border: 1px solid rgba(0, 128, 0, 0.48);
+    background: crimson;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+    outline: 2px solid transparent;
+}
+.kino_card button:hover{
+    background: var(--qora);
+    outline: 2px solid rgba(0, 255, 255, 0.278);
+}
+.kino_card button:hover a{
+    color: var(--oq);
+}
+.kino_card button a{
+    background: transparent;
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;    
+    letter-spacing: 1px;
+}
+@keyframes filter{
+    0%{
+        filter: blur(100px);
+    }
+    100%{
+        filter: blur(0px);
+    }
+}
