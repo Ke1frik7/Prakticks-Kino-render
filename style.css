@@ -8,6 +8,7 @@
     box-sizing: border-box;
     background: var(--qora);
     color: var(--oq);
+    overflow-x: hidden;
 }
 .container{
     width: 1300px;
@@ -168,6 +169,7 @@ input:not(:placeholder-shown):invalid{
     height: auto;    
     animation-name: filter;
     animation-duration: 1.5s;
+    padding: 1rem;
 }
 .kino_header{
     width: 100%;
@@ -182,12 +184,16 @@ input:not(:placeholder-shown):invalid{
     display: flex;
     justify-content: space-evenly;
 }
+#forms .selects_sort{
+    width: 17%;
+}
 #forms select{
     width: 100%;
     padding: 0.3rem 1rem;
     font-size: 17px;
     outline: 2px solid rgba(0, 255, 255, 0.278);
     border-radius: 4px;
+    transition: 0.5s ease;
 }
 #forms select:focus{
     outline: 2px solid rgba(0, 128, 0, 0.48);
@@ -336,4 +342,64 @@ input:not(:placeholder-shown):invalid{
 }
 .cardErrorBlock{
     display: block;
+}
+.kino_card_title .leo{
+    padding: 0.3rem;
+    background: transparent;
+    font-size: 20px;
+}
+.local{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+.local_div{
+    width: 30%;
+    height: auto;
+    position: absolute;
+    background: rgba(128, 128, 128, 0.885);
+    margin-top: 4rem;
+    padding: 1rem;
+    transform: translate(104%);
+    transition: 0.5s ease;
+    text-align: center;
+}
+.local_div h2{
+    background: transparent;
+    color: var(--qora);
+    font-size: 17px;
+}
+.local_div_active{
+    transform: translate(0%);
+}
+.local_diven{
+    padding: 0.4rem 0.6rem;
+    background: grey;
+    font-size:16px ;
+    border-radius: 4px;
+}
+.local_diven #icon{
+    background: transparent;
+}
+.localstorage_div{
+    width: 90%;
+    margin: 0 auto;
+    background: transparent;
+    text-align: center;
+}
+.localstorage_img{
+    width: 80%;
+    margin: 0 auto;
+    object-fit: cover;
+    background: transparent;
+}
+.localstorage_div h3{
+    text-align: center;
+    background: transparent;
+    color: var(--qora);
+}
+.kino_card_title .leo{
+    padding: 0.2rem 0.5rem;
+    font-size: 16px;
+    margin: 0.3rem;
 }

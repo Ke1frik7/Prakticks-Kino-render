@@ -48,6 +48,51 @@ let form = document.getElementById("form")
     form.addEventListener("submit", handle)
     
     let kinoCards = document.querySelector(".kino_cards")
+    let selectSort = document.querySelector(".selects_sort")
+    let objectSort = {
+        az: function(a,b){
+           if(a.title.toLowerCase() < b.title.toLowerCase()){
+                return 1
+           } else{
+            return -1
+           }
+        },
+        za:function(a,b){
+            if(a.title.toLowerCase() < b.title.toLowerCase()){
+                return -1
+            }else{
+                return 1
+            }
+        },
+        rate:function(a,b){
+            if(a.rate < b.rate){
+                return 1
+            }else{
+                return -1
+            }
+        },
+        rates:function(a,b){
+            if(a.rate < b.rate){
+                return -1
+            }else{
+                return 1
+            }
+        },
+        no: function(a,b){
+            if(a.year < b.year){
+                return 1
+            }else{
+                return -1
+            }
+        },
+        on:function(a,b){
+            if(a.rate < b.rate){
+                return -1
+            }else{
+                return 1
+            }
+        },
+    }
     function objectAylan(obj){
         kinoCards.innerHTML = null
         obj.map((e) => {
@@ -64,6 +109,7 @@ let form = document.getElementById("form")
             card.appendChild(cardTitle)
             let h2  = document.createElement("h2")
             h2.appendChild(document.createTextNode(e.title))
+            h2.id = 'title'
             cardTitle.appendChild(h2)
             let h3 = document.createElement("h3")
             h3.appendChild(document.createTextNode(e.year))
@@ -78,6 +124,15 @@ let form = document.getElementById("form")
             a.appendChild(document.createTextNode(`Trailer film ${e.title}`))
             btn.appendChild(a)
             cardTitle.appendChild(btn)
+            let i  = document.createElement("i")
+            i.className = "fa-regular fa-heart"
+            i.style.background  = "transparent"
+            let button = document.createElement("button")
+            button.className = 'leo'
+            button.appendChild(i)
+            button.appendChild(document.createTextNode(e.title))
+            button.addEventListener("click", likes)
+            cardTitle.appendChild(button)
         })
     }
     let results = []
@@ -105,6 +160,7 @@ let form = document.getElementById("form")
         console.log(e)
         e.preventDefault()
         let optionValue = select.value
+        let selectSortValue = selectSort.value
         let filter = []
         if(optionValue == "all"){
             filter = movies
@@ -115,8 +171,56 @@ let form = document.getElementById("form")
         let inputValue = inputSub.value
         let rejex = new RegExp(inputValue, "gi")
         filter = filter.filter((item) => item.title.match(rejex))
+        
+        filter.sort(objectSort[selectSortValue])
+        console.log(filter)
         objectAylan(filter)
     }
     document.getElementById("forms").addEventListener("submit", formSub)
     objectAylan(movies)
+    let objecting = {
+        name : null,
+        img: null,
+        text: null
+    }
+    let local = document.querySelector(".local_div") 
+    let storidge = []
+    let arayem = []
+    let parsen;
+    function likes(e){
+       let text = e.target.textContent
+       let regesS = new RegExp(text, "gi")
+       arayem = movies.filter((item) => item.title.match(regesS))
+       for(let i = 0; i<arayem.length; i++){
+        if(!storidge.includes(arayem[i].bigposter && !storidge.includes(arayem[i].title))){
+            storidge.push(arayem[i].bigposter)
+            storidge.push(arayem[i].title)
+                objecting.name = arayem[i].title
+                objecting.img = arayem[i].bigposter
+                objecting.text = true                     
+            }
+    }
+        localStorage.setItem("storage", JSON.stringify(objecting))
+        console.log(localStorage.getItem("storage"))
+         parsen  = JSON.parse(localStorage.getItem("storage"))
+        console.log(parsen)
+    }
+        let h2 = document.createElement("h2")
+        h2.appendChild(document.createTextNode("Like bosilgan va saqlangan kinolar"))
+        local.appendChild(h2)
+        let dives = document.createElement("div")
+        dives.className = 'localstorage_div'
+        let img = document.createElement("img")
+        img.src = JSON.parse(localStorage.getItem("storage")).img
+        img.className = 'localstorage_img'
+        dives.appendChild(img)
+        let h3 =  document.createElement("h3")
+        h3.appendChild(document.createTextNode(JSON.parse(localStorage.getItem("storage")).name))
+        dives.appendChild(h3)
+        local.appendChild(dives)
     
+        function boss(e){
+        console.log(e)
+        local.classList.toggle("local_div_active")    
+    }
+    document.querySelector(".local_diven").addEventListener("click", boss)

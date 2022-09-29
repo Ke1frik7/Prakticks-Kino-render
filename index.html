@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -41,7 +42,7 @@
                         <input type="email" required form="form" id="input_email" class="input_email" placeholder="Emailingizni iriting ..">
                         <input type="password" id="input_parol" required placeholder="Parolingini kiriting">
                         <button type="submit"  form="form" class="btn" id="btn">Yuborish ... </button>
-                </div>
+                    </div>
                 
             </div>
         </div>
@@ -62,12 +63,27 @@
                     </dalatlist>                     -->
                 </lebel>
                 <input type="text" aria-label="Kinolar" class="forms_input" form="forms" placeholder="Kino_qidiring ... ">
+                <select name="" form="forms" class="selects_sort" id="selects_sort">
+                    <option value="az">AZ</option>
+                    <option value="za">ZA</option>
+                    <option value="rate">Rate</option>
+                    <option value="rates">!Rate</option>
+                    <option value="no">New Old</option>
+                    <option value="on">Old New</option>
+                </select>
                 <button type="submit" aria-label="Kinolar">Qidirish</button>
             </form>
+            <div class="local">
+                <button class="local_diven"><i class="fa-solid fa-heart " id="icon"></i></button>
+                <div class="local_div">
+                    
+                </div>
+            </div>
         </div>
         <div class="kino_cards">
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js" integrity="sha512-naukR7I+Nk6gp7p5TMA4ycgfxaZBJ7MO5iC3Fp6ySQyKFHOGfpkSZkYVWV5R7u7cfAicxanwYQ5D1e17EfJcMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./object.js"></script>
 <script src="./main.js"></script>
 </body>
