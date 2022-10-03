@@ -1,6 +1,7 @@
 let kino = document.querySelector(".kino")
 let select = document.querySelector("#select")
 let inputSub = document.querySelector(".forms_input")
+let carusel = document.querySelector(".container_carusel")
 window.addEventListener("load", () => {
     let loader  = document.querySelector(".load")
     let element = document.querySelector(".element")
@@ -9,6 +10,7 @@ window.addEventListener("load", () => {
         setTimeout(() => {
            loader.classList.add("none") 
             element.classList.add("block")
+            
         }, 500)
     }, 1000)
 })
@@ -33,6 +35,7 @@ let form = document.getElementById("form")
                 setTimeout(() => {
                     parent.remove()
                     kino.classList.add("kinoBlock")
+                    carusel.classList.add("caruselBlock")
                 }, 1000)
             }, 100)
             console.log(true)
@@ -211,7 +214,7 @@ let form = document.getElementById("form")
         let dives = document.createElement("div")
         dives.className = 'localstorage_div'
         let img = document.createElement("img")
-        img.src = JSON.parse(localStorage.getItem("storage")).img
+        img.src = JSON.parse(localStorage.getItem("storage"))
         img.className = 'localstorage_img'
         dives.appendChild(img)
         let h3 =  document.createElement("h3")
@@ -222,5 +225,105 @@ let form = document.getElementById("form")
         function boss(e){
         console.log(e)
         local.classList.toggle("local_div_active")    
+            
     }
     document.querySelector(".local_diven").addEventListener("click", boss)
+    // let limit = 3
+    // let page = 1
+    // console.log(movies.length) // 12 page va 12 ni 3 ga bulinadigan bulsak 4 ta page qoladi ... 
+    // let maximal = Math.ceil(movies.length / limit) // 3 ga bulinmagan taqdirda ham qoldiqli bulgan taqdirda ham ceil tugirlab beradi a'ni butun son qilib ... 
+    // let pagesText = document.getElementById("pages_text")
+    // let ii = document.getElementById("pages")
+    // function btns(e){
+    //     page++
+    //     pagesText.textContent = page
+      
+    //     if(page <= maximal){ // 4 tagacha borsin page lar deyilgan ya'ni 0 dan 4 gacha oshib borhuncha ....
+    //         objectAylan(movies.slice(limit*(page-1), limit*page))
+    //         // 3 *(3 ya'ni oshib borganda ) 3-1) = 6 buladi ... va 3 * 3 = 9 )
+    //         // 6 dan 9 gacha boradi ... ya'ni 6-kinodan 9-kinogacha ... 
+    //     }else{
+    //         pagesText.textContent = "Page lar soni tugadi"
+    //         ii.redeonly= true
+    //     }
+    // }
+    // objectAylan(movies.slice(0,3))
+
+    // document.getElementById("pages").addEventListener("click", btns)
+
+    // Boshidan .. 
+    let kinolarSoni = 3 // tadan bulsin
+    let pages = 1
+    let max = movies.length / kinolarSoni
+    let pageBtn = document.getElementById("pages").addEventListener("click", btns)
+    let pagesText = document.getElementById("pages_text")
+    let editBtn = document.getElementById("edit").addEventListener("click", editCount)
+    function btns(){
+        pages ++
+        pagesText.textContent = pages
+        if(pages <= max){
+            objectAylan(movies.slice(kinolarSoni * (pages-1), (kinolarSoni * pages)))
+        }else{
+            pagesText.textContent  = 'Page lar soni tugadi ... '
+            pageBtn.disabled = true
+        }
+    }
+    function editCount(){
+        pages--
+        if(pages >= 1){
+            objectAylan(movies.slice(kinolarSoni * (pages-1), (kinolarSoni * pages)))
+        }else {
+            editBtn.disabled = true
+        }
+    }
+
+
+    let rasmlarArray = []
+    let textlarArray = []
+    let images = document.querySelector(".images")
+    let right = document.getElementById("right")
+    let left  = document.getElementById("left")
+    function rasm(arr){
+        for(let i = 0; i<arr.length; i++){
+            if(!rasmlarArray.includes(arr[i].bigposter)){
+                rasmlarArray = [...rasmlarArray, arr[i].bigposter, ]
+                textlarArray = [...textlarArray, arr[i].title]
+            }else{
+                console.log(false)
+            }
+        }
+        for(let i = 0; i<rasmlarArray.length; i++){
+            console.log(rasmlarArray[i])
+            let image = document.createElement("img")
+            image.src = rasmlarArray[i]
+            images.appendChild(image)
+        }
+        for(let i = 0; i<textlarArray.length; i++){
+            let h3  = document.createElement("h3")
+            h3.appendChild(document.createTextNode(textlarArray[i]))
+            images.appendChild(h3)
+        }
+        let index = 0
+        let imgs = document.querySelectorAll(".images img")
+        function change(){
+            if(index > imgs.length-1){
+                index=  0
+            }else if(index < 0){
+                index = imgs.length-1
+            }
+            images.style.transform = `translate(${index * -500}px)`
+        }
+        right.addEventListener("click", () => {
+            index++
+            change()
+        })
+        left.addEventListener("click", () => {
+            index--
+            change()
+        })
+        setInterval(() => {
+            index++
+            change()
+        }, 2000)
+    }
+    rasm(movies)

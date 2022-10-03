@@ -8,7 +8,7 @@
     box-sizing: border-box;
     background: var(--qora);
     color: var(--oq);
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 .container{
     width: 1300px;
@@ -137,6 +137,10 @@ input:not(:placeholder-shown):invalid{
     transition: 1s ease;
     overflow-x: hidden;
     overflow-y: hidden;
+    
+}
+body{
+    overflow-x: hidden;
 }
 .load_align{
     position: absolute;
@@ -402,4 +406,68 @@ input:not(:placeholder-shown):invalid{
     padding: 0.2rem 0.5rem;
     font-size: 16px;
     margin: 0.3rem;
+}
+.buttons{
+    width: 15%;
+    display: flex;
+    justify-content: end;
+    padding-top: 1rem;
+    z-index: 1;
+    position: absolute;
+    margin: 1rem;
+    text-align: center;
+}
+.buttons button{
+    /* margin: 1rem; */
+    /* width: 20%; */
+    color: var(--qora);
+    margin: 0 auto;
+    font-size: 19px;
+    background: grey;
+    padding: 0.5rem;
+    border-radius: 10px;
+    transition: 0.5s ease;
+    border: 1px solid transparent;   
+    outline: 3px solid transparent;
+    z-index: 1;
+}
+.buttons button:hover{
+    background-color:rgba(0, 0, 0, 0.31);
+    border-radius: 0;
+    color: var(--oq);
+    /* border: 1px solid var(--oq); */
+    outline:3px solid rgba(0, 255, 255, 0.278);
+}
+.buttons h3{
+    text-align: center;
+}
+.container_carusel{
+    display: none;
+    padding-top: 5rem;
+    width: 500px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    height: 600px;
+    
+    /* display: flex;
+    
+    justify-content: center;    */
+}
+.images{
+    display: flex;
+    transform: translate(0px);
+    /* overflow-x: hidden; */
+    transition: 0.5s ease;
+}
+.images img{
+    object-fit: cover;
+    width: 500px;
+    height: 450px;   
+}
+.container_carusel button{
+    padding: 0.5rem 1rem;
+    background: crimson;
+}
+.caruselBlock{
+    display: block;
 }
